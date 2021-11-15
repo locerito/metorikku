@@ -137,6 +137,25 @@ cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
 EOL
 fi
 
+if [ -z $DBT_REPO ]; then
+echo "USING DBT"
+cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
+      <property>
+        <name>fs.s3a.bucket.${DBT_REPO}.secret.key</name>
+        <value>${DBT_REPO_SECRET_KEY}</value>
+      </property>
+      <property>
+        <name>fs.s3a.bucket.${DBT_REPO}.endpoint</name>
+        <value>${DBT_REPO_ENDPOINT}</value>
+      </property>
+      <property>
+          <name>fs.s3a.bucket.${DBT_REPO}.access.key</name>
+          <value>${DBT_REPO_ACCESS_KEY}</value>
+      </property>
+EOL
+end
+fi
+
 if [ $USE_ATLAS == 'true' ]; then
 echo "USING ATLAS"
 cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
