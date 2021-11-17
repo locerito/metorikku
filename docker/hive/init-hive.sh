@@ -153,7 +153,6 @@ cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
           <value>${DBT_REPO_ACCESS_KEY}</value>
       </property>
 EOL
-end
 fi
 
 if [ $USE_ATLAS == 'true' ]; then
