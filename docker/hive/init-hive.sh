@@ -137,7 +137,7 @@ cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
 EOL
 fi
 
-if [ -z $DBT_REPO ]; then
+if [ ! -z $DBT_REPO ]; then
 echo "USING DBT"
 cat >>${HIVE_HOME}/conf/hive-site.xml <<EOL
       <property>
